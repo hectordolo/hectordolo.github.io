@@ -92,6 +92,16 @@ section p{
     text-align: center;
 }
 
+
+.container label{
+    color: #c5c6c1;
+}
+
+#tools h3{
+    color: #c5c6c1;
+    text-align: center;
+}
+
 section span{
     color: #004445;
 }
@@ -119,6 +129,13 @@ section#interest {
     height: 800px;
     width: 100%;
     background-color: #004445;
+}
+
+section#tools {
+    float: left;
+    height: 800px;
+    width: 100%;
+    background-color: #2C7873;
 }
 
 section.large{
