@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Hector Dolo">
+        <meta name="keywords" content="Web Developer">
+
+        <title>Hector Dolo</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="vendor/bootstrap-4/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="css/hd.css" rel="stylesheet">
+
+        <link rel="shortcut icon" href="favicon.ico">
+
+        <!-- Custom Fonts -->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+        <nav>
+
+        </nav>
+        <header class="large">
+            <div class="container">
+                <nav>
+                    <a data-scroll href="#home">
+                        <p class="logo">Hector Dolo</p>
+                    </a>
+                    <ul>
+                        <li><a data-scroll href="#home">Home</a></li>
+                        <li><a data-scroll href="#about">About</a></li>
+                        <li><a data-scroll href="#interest">Interest</a></li>
+                        <li><a data-scroll href="#tools">Tools</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section id="home" class="large">
+            <div id="info">
+                <h1 id="greetings">Whatsupp!</h1>
+                <hr>
+                <h2 id="message">I'm a DEV OPS operating in the shadows to make the world a better place. You can call me by my initials Haytch Dee!</h2>
+            </div>
+        </section>
+
+        <section id="about" class="large">
+            <h1 class="title">About</h1>
+            <p>I current work as an IT Specialist doing projects in the different kinds of industry such as Education, Health, Transportation, BPO's, MLM's and the like, mostly concentrated on SME's. I usually do systems implementation, support and maintenance and also do freelance development if needed but I usually look for ready made solutions online that best suits my client's requirements and recomend it to them.</p>
+            <hr>
+            <p>Baguio City, Philippines, 2600 <span>|</span> +63 921 436 2827 <span>|</span> hectordolo@gmail.com</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/hector-dolo-9b011129">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/hectordolo/">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.facebook.com/hdawgs">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/hd_random_pics/">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCt-N5jhaIbmwzvu2fbxSdMQ?view_as=subscriber">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="interest" class="large">
+            <h1 class="title">Interest</h1>
+            <p>When I have free time I do a lot of Marathons on Netflix.</p>
+            <p>I am also a self proclaimed graphic artist so sometimes I do design and upload them on <a href="https://www.teepublic.com/user/hectordolo">TeePublic</a>. I thought no one would buy one but I guess I am lucky someone bought 1 out of 30 designs, yehey an achievement for me.</p>
+            <p>I also love to cook my own food and proclaim my self as a Chef! Feel free to visit my <a href="https://www.instagram.com/hd_random_pics/">Instagram Page</a>.</p>
+            <p>I also started my own youtube channel posting some random stuffs of my experiences in life  <a href="https://www.youtube.com/channel/UCt-N5jhaIbmwzvu2fbxSdMQ?view_as=subscriber">Instagram Page</a>.</p>
+        </section>
+
+        <section id="tools" class="large">
+            <h1 class="title">Tools</h1>
+            <div class="row container" id="base64">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <h3>Base 64 Encoder</h3>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <label>Text to Encode</label>
+                    <input type="text" id="text_to_encode" v-on:keyup="base64Encode" v-model="text_to_encode" class="form-control">
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <label>Encoded</label>
+                    <input type="text" id="encoded" v-model="encoded" class="form-control">
+                </div>
+                &nbsp;
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <h3>Base 64 Decoder</h3>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <label>Text to Decode</label>
+                    <input type="text" id="text_to_decode" v-on:keyup="base64Decode" v-model="text_to_decode" class="form-control">
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <label>Decoded</label>
+                    <input type="text" id="decoded" v-model="decoded" class="form-control">
+                </div>
+            </div>
+
+        </section>
+
+        <script src="vendor/jquery-3/jquery-3.3.1.min.js"></script>
+        <script src="vendor/bootstrap-4/js/bootstrap.min.js"></script>
+        <script src="vendor/smooth-scroll/smooth-scroll.js"></script>
+        <script src="vendor/vuejs/vue.js"></script>
+
+        <script src="js/hd.js"></script>
+
+        <script>
+
+            var scroll = new SmoothScroll('a[href*="#"]');
+
+            var base64 = new Vue({
+                el: '#base64',
+                data: {
+                    text_to_encode: '',
+                    encoded: '',
+                    text_to_decode: '',
+                    decoded: ''
+                },
+                methods: {
+                    base64Encode: function (event) {
+                        $("#encoded").val(btoa($('#text_to_encode').val()));
+                    },
+                    base64Decode: function () {
+                        $("#decoded").val(atob($('#text_to_decode').val()));
+                    },
+                }
+            });
+
+
+        </script>
+
+    </body>
+
+</html>
